@@ -18,33 +18,22 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="js/App.js"></script>
-    <script src="js/Controller.js"></script>
-
-    <!-- MVC Controllers -->
-    <!--<script src="js/Controllers/AppController.js"></script>
-    
-    <script src="js/Controllers/ControllerOne.js"></script>
-    <script src="js/Controllers/ControllerTwo.js"></script>
-    <script src="js/Controllers/ControllerThree.js"></script>-->
-    
-    <!-- More 150 controllers... -->
+    <script src="App/Script.js"></script>
+    <script type="text/javascript">
+        $script('lib/angular-route/angular-route.min.js');
+        $script([
+            'App/App.js', 'App/Controller.js'
+        ], function() {
+            angular.bootstrap(document, ['starter']);
+        });
+        $script.path('Controllers/', function(err) {
+            console.log(err);
+        });
+    </script>
   </head>
-  <body ng-app="starter">
+  <body>
 
-    <ion-side-menus>
-        <!-- Center content -->
-        <ion-side-menu-content>
-            <ion-nav-view name="menuContent"></ion-nav-view>
-        </ion-side-menu-content>
+    <ion-nav-view></ion-nav-view>
 
-        <!-- Left menu -->
-        <ion-side-menu side="left">
-            <ion-header-bar class="bar-dark">
-                <h1 class="title">Projects</h1>
-            </ion-header-bar>
-        </ion-side-menu>
-
-    </ion-side-menus>
   </body>
 </html>

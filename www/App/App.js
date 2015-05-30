@@ -4,7 +4,8 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('starter', [
-    'ionic', 'starter.controllers'
+    'ionic', 'starter.controllers',
+    
 ]);
 
 app.run(function($ionicPlatform) {
@@ -25,14 +26,30 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     .state("app", {
         url: '/app',
-        // abstract: true,
+        abstract: true,
+        templateUrl: "Templates/Menu.html",
+        controller: 'AppCtrl',
+    })
+
+    .state("app.home", {
+        url: '/home',
         views: {
             'menuContent' : {
-                templateUrl: "Views/AppCtrl.html",
-                controller: 'AppCtrl as _ctrl',
+                templateUrl: "Views/Home/home.html",
+                controller: 'HomeCtrl as _home', // --> Error here
+            },
+        },
+    })
+
+    .state("app.fruit.orange", {
+        url: '/fruits/orange',
+        views: {
+            'menuContent' : {
+                templateUrl: "Views/Fruits/orange/home.html",
+                controller: 'OrangeCtrl as _orange',
             },
         },
     });
 
-    $urlRouterProvider.otherwise('/app');
+    $urlRouterProvider.otherwise('/app/home');
 })
