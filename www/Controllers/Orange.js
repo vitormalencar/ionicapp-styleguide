@@ -8,4 +8,4 @@
     	console.log('Loading OrangeCtrl!');
     };
     
-});
+})();

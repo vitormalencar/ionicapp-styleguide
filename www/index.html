@@ -18,16 +18,17 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
-    <script src="App/Script.js"></script>
+    <script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="App/Script.v2.js"></script>
+    <script src="App/App.js"></script>
+    <script src="App/Controller.js"></script>
     <script type="text/javascript">
-        $script('lib/angular-route/angular-route.min.js');
-        $script([
-            'App/App.js', 'App/Controller.js'
+        var $c = $script;
+        $c.path = 'Controllers/';
+        $c([
+            'MenuLeft', 'Home', 'Fruits', 'Orange'
         ], function() {
             angular.bootstrap(document, ['starter']);
-        });
-        $script.path('Controllers/', function(err) {
-            console.log(err);
         });
     </script>
   </head>

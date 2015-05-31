@@ -28,7 +28,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url: '/app',
         abstract: true,
         templateUrl: "Templates/Menu.html",
-        controller: 'AppCtrl',
+        controller: 'AppCtrl as _menu',
     })
 
     .state("app.home", {
@@ -41,7 +41,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
         },
     })
 
-    .state("app.fruit.orange", {
+    .state("app.fruits", {
+        url: '/fruits',
+        views: {
+            'menuContent' : {
+                templateUrl: "Views/Fruits/list.html",
+                controller: 'FruitsCtrl as _fruits',
+            },
+        },
+    })
+
+    .state("app.fruitOrange", {
         url: '/fruits/orange',
         views: {
             'menuContent' : {
