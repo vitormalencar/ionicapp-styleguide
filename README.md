@@ -1,5 +1,7 @@
 ## Ionic app with AngularJs
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/vitormalencar/ionicapp-styleguide.svg)](https://greenkeeper.io/)
+
 The Mobile Aplication with Ionic and AngularJs
 
 Author: Francis Rodrigues
